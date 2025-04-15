@@ -67,7 +67,7 @@ resource "aws_ecs_service" "timeapp_service" {
     container_port   = 9000
   }
 
-  depends_on = [aws_lb_listener.this]
+  depends_on = [aws_lb_listener.timeapp_listener]
 }
 
 resource "aws_iam_role" "ecs_task_execution" {
