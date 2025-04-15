@@ -59,28 +59,4 @@ docker push <your-dockerhub-username>/timeapp:latest
 
 ## 🚀 Deployment Instructions
 
-After pushing your image to the registry:
-
-1. Update the Terraform configuration in Terraform directory:
-       
-```bash
-vi TimeApp/terraform/terraform.tfvars
-```
-
-   Set the correct image URL based on your registry:
-```hcl
-container_image = "<your-username>/timeapp:latest"
-```
-
-2. Deploy the infrastructure:
-```bash
-cd TimeApp/terraform
-terraform init         
-terraform plan         
-terraform apply   
-```
-3. Access your application:
-    - The Load Balancer URL will be shown in Terraform outputs
-    - Run terraform output alb_dns_name to view it anytime
-
-**Note: The default configuration uses adithyanthevar/timeapp if no changes are made to terraform.tfvars.**
+For a complete guide on deploying the application to AWS Fargate using Terraform, including additional configuration options, please refer to the [main project README.md](https://github.com/adithyanthevar/timeapp/blob/main/README.md) located in the parent directory.
