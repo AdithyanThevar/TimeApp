@@ -12,16 +12,16 @@ The purpose of this project is to:
 
 ## 📁 Project Structure
 
-    ├── app/                       # App source code and Docker-related files
-    │   ├── app.py                 # Your Flask (or other) app
-    │   ├── requirements.txt       # Python dependencies
-    │   ├── Dockerfile             # Container build config
+    ├── app/                       
+    │   ├── app.py                 
+    │   ├── requirements.txt       
+    │   ├── Dockerfile             
     │   └── README.md              
     |
-    ├── terraform/                 # Terraform configuration files
-    │   ├── main.tf                # Main Terraform logic
-    │   ├── variables.tf           # Input variables
-    │   └── terraform.tfvars       # Variable values (optional)
+    ├── terraform/                 
+    │   ├── main.tf                
+    │   ├── variables.tf           
+    │   └── terraform.tfvars       
     │
     └── README.md                  # You're here!
 
