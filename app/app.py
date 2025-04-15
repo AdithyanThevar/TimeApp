@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def get_time():
     return jsonify({
-        "ip": request.remote_addr,
+        "ip": request.headers.get('X-Forwarded-For', request.remote_addr),
         "timestamp": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
     })
 
