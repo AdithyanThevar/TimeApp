@@ -20,7 +20,6 @@ The purpose of this project is to:
     ├── terraform/                 # Terraform configuration files
     │   ├── main.tf                # Main Terraform logic
     │   ├── variables.tf           # Input variables
-    │   ├── outputs.tf             # Output values (e.g., ALB DNS)
     │   └── terraform.tfvars       # Variable values (optional)
     │
     └── README.md                  # You're here!
