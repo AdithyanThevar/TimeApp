@@ -15,8 +15,9 @@ The purpose of this project is to:
     ├── app/                       # App source code and Docker-related files
     │   ├── app.py                 # Your Flask (or other) app
     │   ├── requirements.txt       # Python dependencies
-    │   └── Dockerfile             # Container build config
-    │
+    │   ├── Dockerfile             # Container build config
+    │   └── README.md              
+    |
     ├── terraform/                 # Terraform configuration files
     │   ├── main.tf                # Main Terraform logic
     │   ├── variables.tf           # Input variables
@@ -68,6 +69,10 @@ Open `terraform.tfvars` file and edit the following lines according to your need
 aws_region = "<your region>"
 image_url  = "<your image URL>"
 ```
+**Note about the image URL:**
+
+- By default, the configuration uses `adithyanthevar/timeapp` as the container image  
+- If you want to run a different application, modify the `image_url` to point to your own Docker image (e.g., `your-dockerhub-username/your-app-name`)  
 
 ### 3. Initialize Terraform
 Run the following command to initialize the Terraform configuration:
