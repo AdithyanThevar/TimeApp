@@ -72,7 +72,7 @@ image_url  = "<your image URL>"
 **Note about the image URL:**
 
 - By default, the configuration uses `adithyanthevar/timeapp` as the container image  
-- If you want to run a different application, modify the `image_url` to point to your own Docker image (e.g., `your-dockerhub-username/your-app-name`)  
+- If you want to run a different image, modify the `image_url` to point to your own Docker image (e.g., `your-dockerhub-username/your-app-name`)  
 
 ### 3. Initialize Terraform
 Run the following command to initialize the Terraform configuration:

@@ -1,4 +1,4 @@
-## 🕒 TimeApp Deployment
+## 🕒 TimeApp
 
 A simple Flask application that returns the client's IP and current UTC timestamp. Containerized with Docker and deployable via Terraform to AWS ECS.
 
@@ -45,7 +45,7 @@ Using Pre-built Image (Quick Start)
 
 A pre-built image is available at adithyanthevar/timeapp on Docker Hub. The Terraform configuration uses this by default.
 
-### Option A: 🐳 Docker Hub
+### 🐳 Docker Hub
 ```bash
 # Tag with your username
 docker tag timeapp:latest <your-dockerhub-username>/timeapp:latest
@@ -57,21 +57,30 @@ docker login
 docker push <your-dockerhub-username>/timeapp:latest
 ```
 
-### Option B: ☁️ Push to AWS ECR
+## 🚀 Deployment Instructions
 
+After pushing your image to the registry:
+
+1. Update the Terraform configuration in Terraform directory:
+       
 ```bash
-# 1. Authenticate with ECR
-aws ecr get-login-password | docker login --username AWS --password-stdin <account-id>.dkr.ecr.<region>.amazonaws.com
-
-# 2. Create repository (first time only)
-aws ecr create-repository \
-    --repository-name timeapp \
-    --image-scanning-configuration scanOnPush=true \
-    --image-tag-mutability MUTABLE
-
-# 3. Tag your image
-docker tag timeapp:latest <account-id>.dkr.ecr.<region>.amazonaws.com/timeapp:latest
-
-# 4. Push image to ECR
-docker push <account-id>.dkr.ecr.<region>.amazonaws.com/timeapp:latest
+vi TimeApp/terraform/terraform.tfvars
 ```
+
+   Set the correct image URL based on your registry:
+```hcl
+container_image = "<your-username>/timeapp:latest"
+```
+
+2. Deploy the infrastructure:
+```bash
+cd TimeApp/terraform
+terraform init         
+terraform plan         
+terraform apply   
+```
+3. Access your application:
+    - The Load Balancer URL will be shown in Terraform outputs
+    - Run terraform output alb_dns_name to view it anytime
+
+**Note: The default configuration uses adithyanthevar/timeapp if no changes are made to terraform.tfvars.**
