@@ -98,7 +98,7 @@ resource "aws_lb" "timeapp_alb" {
   internal           = false
   load_balancer_type = "application"
   subnets            = module.vpc.public_subnets
-  security_groups    = [aws_security_group.alb.id]
+  security_groups    = [aws_security_group.alb_sg.id]
 }
 
 resource "aws_lb_target_group" "timeapp_tg" {
@@ -155,7 +155,7 @@ resource "aws_security_group" "ecs_sg" {
     from_port       = 9000
     to_port         = 9000
     protocol        = "tcp"
-    security_groups = [aws_security_group.alb.id]
+    security_groups = [aws_security_group.alb_sg.id]
   }
 
   egress {
