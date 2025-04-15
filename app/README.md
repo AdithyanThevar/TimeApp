@@ -39,7 +39,11 @@ docker run -d -p 9000:9000 --name timeapp timeapp:latest
 curl http://localhost:9000
 ```
 
-##  Push to Registry
+## 📦 Push to Registry
+
+Using Pre-built Image (Quick Start)
+
+A pre-built image is available at adithyanthevar/timeapp on Docker Hub. The Terraform configuration uses this by default.
 
 ### Option A: 🐳 Docker Hub
 ```bash
